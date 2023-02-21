@@ -1,0 +1,64 @@
+<!--Formulario -->
+<form [formGroup]="baseForm" (submit)="save()" class="mb-5" >
+
+  <!-- Name -->
+  <mat-form-field appearance="outline" class="col-6">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="baseForm.get('name')?.errors?.['required']">Required</mat-error>
+  </mat-form-field>
+
+  <!-- Species -->
+  <mat-form-field appearance="outline" class="col-6">
+
+
+
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="species" >
+    <mat-error *ngIf="baseForm.get('species')?.errors?.['required']">Required</mat-error>
+  </mat-form-field>
+
+
+
+  <!-- Status -->
+  <mat-form-field appearance="outline" class="col-6">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option [value]="'Alive'">Alive</mat-option>
+      <mat-option [value]="'Dead'">Dead</mat-option>
+      <mat-option [value]="'unknown'">Unknown</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Gender -->
+  <mat-form-field appearance="outline" class="col-6">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option [value]="'Male'">Male</mat-option>
+      <mat-option [value]="'Female'">Female</mat-option>
+      <mat-option [value]="'unknown'">Unknown</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Created</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="created">
+
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+
+
+
+  <div>
+    <button type="button" mat-button  mat-dialog-close="">Cancel</button>
+    <button type="submit" mat-button [disabled]="baseForm.invalid" >Save</button>
+  </div>
+
+</form>
+
+
+

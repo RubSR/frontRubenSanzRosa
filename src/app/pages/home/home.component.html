@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="row m-auto mt-4 cont_w">
+  <div>
+    <button mat-raised-button color="accent" (click)="openCreateDialog()">Add new</button>
+  </div>
+  <app-char-card *ngFor="let char of characters; let i= index"
+                 [character]="char"
+                 class="col-xl-3 col-xs-6 col-sm-6 col-md-4 mb-3 mt-5"
+                 (clickEvent)="openImageDialog($event)"
+                 (removeEvent)="openRemoveDialog(char.name, i)"
+                 (updateEvent)="openUpdateDialog(char, i)"
+  >
+
+  </app-char-card>
+
+  <mat-paginator [length]="(totalChars + characters.length - 20)"
+                 [pageSize]="characters.length"
+                 [pageSizeOptions]="[20]"
+                 (page)="printar($event)"
+                 aria-label="Select page">
+  </mat-paginator>
+</div>

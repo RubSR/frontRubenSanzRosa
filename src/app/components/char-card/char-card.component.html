@@ -1,0 +1,18 @@
+<div class="card "  *ngIf="character">
+  <img [src]="character.image" class="card-img-top"  alt="..." (click)="emitClick()" >
+  <div class="card-body ">
+    <h2 class="card-title fw-bold text-center">{{character.name}}</h2>
+    <p class="list-group-item">Species: {{character.species}}</p>
+    <p class="list-group-item">Status: {{character.status}}</p>
+    <p class="list-group-item">Gender: {{character.gender}}</p>
+    <p class="list-group-item">Created: {{character.created | date: 'dd-MM-yyyy'}}</p>
+  </div>
+
+  <div class="card-body text-end">
+    <button type="button" mat-raised-button color="succes" class="me-2" (click)="emitUpdate()">Update</button>
+    <button type="button" mat-raised-button color="warn" (click)="emitRemove()">Remove</button>
+
+  </div>
+</div>
+
+
